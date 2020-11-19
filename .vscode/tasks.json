@@ -1,0 +1,79 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "group": "build",
+            "type": "typescript",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }, 
+            "tsconfig": "./"
+        },
+        {
+            "label": "build:background",
+            "type": "shell",
+            "command": "npx",
+            "options": {
+                "cwd": "${workspaceFolder}/client/extension/background"
+            },
+            "args": [
+                "parcel",
+                "build",
+                "background.ts",
+                "--out-dir",
+                "../../public/build/",
+                "--experimental-scope-hoisting"
+            ]
+        },
+        {
+            "label": "build:contentScript",
+            "type": "shell",
+            "command": "npx",
+            "options": {
+                "cwd": "${workspaceFolder}/client/extension"
+            },
+            "args": [
+                "tsc-bundle",
+                "contentScript.ts",
+                "--outFile",
+                "../public/build/contentScript.js"
+            ]
+        },
+        {
+            "label": "build:options",
+            "type": "shell",
+            "command": "npx",
+            "options": {
+                "cwd": "${workspaceFolder}/client/extension"
+            },
+            "args": [
+                "tsc-bundle",
+                "options.ts",
+                "--outFile",
+                "../public/build/options.js"
+            ]
+        },
+        {
+            "type": "shell",
+            "label": "build:popup",
+            "options": {
+                "cwd": "${workspaceFolder}/client"
+            },
+            "command": "npm",
+            "args": [
+                "run",
+                "build"
+            ]
+        },
+        {
+            "label": "build:extension",
+            "group": "build",
+            "dependsOn": [
+                "build:background",
+                "build:contentScript",
+                "build:options",
+                "build:popup"
+            ]
+        }
+    ]
+}

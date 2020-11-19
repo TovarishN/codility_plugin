@@ -1,0 +1,52 @@
+{
+    "manifest_version": 2,
+    "name": "Bind file to element",
+    "version": "1.0",
+    "description": "Binds and watches file content and synchronizes with page element",
+    "permissions": [
+        "storage",
+        "declarativeContent",
+        "activeTab",
+        "webRequest",
+        "clipboardWrite",
+        "clipboardRead",
+        "ws://*/*",
+        "wss://*/*"
+    ],
+    "browser_action": {
+        "default_icon": {
+            "32": "images/aim_32.png"
+        },
+        "default_title": "Bind",
+        "default_popup": "popup.html"
+    },
+    "file_system_provider_capabilities": {
+        "watchable": true,
+        "configurable": true,
+        "source": "file"
+    },
+    "options_page": "options.html",
+    "background": {
+        "page": "background.html"
+    },
+    "web_accessible_resources": [
+        "./*",
+        "./build/**/*"
+    ],
+    "icons": {
+        "16": "images/aim_16.png",
+        "32": "images/aim_32.png",
+        "48": "images/aim_48.png",
+        "128": "images/aim_128.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "./build/contentScript.js"
+            ]
+        }
+    ]
+}

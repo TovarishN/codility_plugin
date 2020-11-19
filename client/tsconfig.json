@@ -1,0 +1,17 @@
+{
+	"extends": "@tsconfig/svelte/tsconfig.json",
+	"compilerOptions": {
+		"rootDir": "src",
+		"types": ["chrome"]
+	},
+	"include": [
+		"src/**/*"
+	],
+	"exclude": [
+		"__sapper__/*",
+		"public/*"
+	],
+	"references": [{
+		"path": "../common/"
+	}]
+}

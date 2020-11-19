@@ -1,0 +1,29 @@
+{
+  "name": "codility_plugin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/server/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chrome": "0.0.126",
+    "sass": "^1.29.0",
+    "typescript": "^4.0.5"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.8",
+    "@types/socket.io": "^2.1.11",
+    "@types/socket.io-client": "^1.4.34",
+    "@types/ws": "^7.2.9",
+    "express": "^4.17.1",
+    "http": "0.0.1-security",
+    "https": "^1.0.0",
+    "parcel-bundler": "^1.12.4",
+    "socket.io": "^3.0.0",
+    "ws": "^7.4.0"
+  }
+}
